@@ -1,0 +1,57 @@
+mode: night
+device: cuda
+
+sun:
+  direction: [0.8744, 0.0132, 0.4850]
+  up: [0.0111, 0.0470, 0.9988]
+  sky_height: 0.8
+  near_dist_T: 0.1
+  sky_shading: [1.0, 1.0, 1.0]
+
+night:
+  ambient:
+    sky:    [0.3, 0.2, 0.2]
+    nonsky: [0.3, 0.25, 0.2]
+  spotlights:
+    headlight_0:
+      position:  [0.0, 0.03, 0.0]
+      direction: [0.0, 1.0, 15.0]
+      color: [1.0, 1.0, 0.96]
+      intensity: 0.2
+      spot_exp: 20
+      near_dist_T: 0.1
+      decay_bound: 10
+      emission_r: 0.05
+      shininess: 300
+      specular_strength: 3
+      move_with_cam: True
+
+    streetlight_0:
+      position:  [-0.17896524, -0.39401138, 0.1728858 ]
+      direction: [0, 0, -1.0]
+      color: [1.0, 0.78, 0.5]
+      intensity: 0.05
+      spot_exp: 2
+      near_dist_T: 0.1
+      decay_bound: 10
+      emission_r: 0.05
+      shininess: 300
+      specular_strength: 3
+      move_with_cam: False
+      flare_size: 300
+      flare_path: 'assets/flares/1.png'
+
+    streetlight_1:
+      position:  [-0.92056906, -0.1953277,  0.08751631]
+      direction: [0.0, -0.5, -1.0]
+      color: [1.0, 0.9, 0.7]
+      intensity: 0.1
+      spot_exp: 2
+      near_dist_T: 0.1
+      decay_bound: 10
+      emission_r: 0.01
+      shininess: 300
+      specular_strength: 3
+      move_with_cam: False
+      flare_size: 300
+      flare_path: 'assets/flares/1.png'

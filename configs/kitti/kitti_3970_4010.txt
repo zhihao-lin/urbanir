@@ -1,0 +1,57 @@
+root_dir = data/kitti360
+dataset_name = kitti
+exp_name = kitti_3970_4010
+batch_size = 1024
+scale = 8.0
+num_epochs = 100
+lr = 0.002
+density_threshold = 0.001
+
+kitti_seq = 0
+kitti_start = 3970
+kitti_end = 4010
+kitti_test_id = [3975, 3980, 3985, 3990, 3995, 4000]
+
+### loss
+l_deshadow = 0.0
+l_albedo = 0.1
+l_ambient = 0.0
+l_depth_mono = 0.01
+l_normal_mono = 0.01
+
+### render a camera path(through interpolation between poses)
+render_traj = True
+
+### render camera poses from training dataset
+render_train = False
+
+render_rgb = True
+render_albedo = True
+render_depth = True
+depth_mono = True
+
+### render derived normal or not
+render_normal = True
+normal_mono = True
+normal_ref = True
+
+### render semantic labels or not, set to False if no g.t. semantic labels
+render_semantic = True
+num_classes = 10
+
+### visibility
+visibility = True
+render_visibility = True 
+
+### shading 
+render_shading = True
+
+### appearance embeddings
+embed_a = True
+embed_a_len = 8
+
+### mask embeddings
+embed_msk = False
+
+### Relight 
+sky_height = 0.8

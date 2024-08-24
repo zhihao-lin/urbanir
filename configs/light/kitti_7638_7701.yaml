@@ -1,0 +1,9 @@
+mode: sun
+device: cuda
+
+sun:
+  direction: [0.5568, -0.2871,  0.7795]
+  up: [0.0104, 0.0488, 0.998]
+  sky_height: 0.8
+  near_dist_T: 0.1
+  sky_shading: [1.0, 1.0, 1.0]

@@ -1,0 +1,87 @@
+mode: night
+device: cuda
+
+sun:
+  direction: [0.5637, -0.3375,  0.7538]
+  up: [-0.0139, -0.0477,  0.9988]
+  sky_height: 0.8
+  near_dist_T: 0.1
+  sky_shading: [1.0, 1.0, 1.0]
+
+night:
+  ambient:
+    sky:    [0.1, 0.1, 0.1]
+    nonsky: [0.16, 0.15, 0.12]
+  spotlights:
+    headlight_0:
+      position:  [0.0, 0.03, 0.0]
+      direction: [0.0, 1.0, 15.0]
+      color: [1.0, 1.0, 0.96]
+      intensity: 0.2
+      spot_exp: 20
+      near_dist_T: 0.1
+      decay_bound: 10
+      emission_r: 0.05
+      shininess: 300
+      specular_strength: 3
+      move_with_cam: True
+
+    streetlight_0:
+      position:  [0.4329217,  0.17993987, 0.25]
+      direction: [0, 0, -1.0]
+      color: [1.0, 0.78, 0.5]
+      intensity: 0.1
+      spot_exp: 2
+      near_dist_T: 0.1
+      decay_bound: 10
+      emission_r: 0.05
+      shininess: 300
+      specular_strength: 1
+      move_with_cam: False
+      flare_size: 300
+      flare_path: 'assets/flares/1.png'
+
+    streetlight_1:
+      position:  [-0.16624513, -1.0256902,   0.2703159 ]
+      direction: [0, 0, -1.0]
+      color: [1.0, 0.78, 0.5]
+      intensity: 0.1
+      spot_exp: 2
+      near_dist_T: 0.1
+      decay_bound: 10
+      emission_r: 0.05
+      shininess: 300
+      specular_strength: 1
+      move_with_cam: False
+      flare_size: 300
+      flare_path: 'assets/flares/1.png'
+
+    streetlight_2:
+      position:  [-0.72668666, -2.1642764,  0.25912303]
+      direction: [0, 0, -1.0]
+      color: [1.0, 0.78, 0.5]
+      intensity: 0.1
+      spot_exp: 2
+      near_dist_T: 0.1
+      decay_bound: 10
+      emission_r: 0.05
+      shininess: 300
+      specular_strength: 1
+      move_with_cam: False
+      flare_size: 300
+      flare_path: 'assets/flares/1.png'
+
+    streetlight_3:
+      position:  [-1.1771973,  -3.014246,   0.23863292]
+      direction: [0, 0, -1.0]
+      color: [1.0, 0.78, 0.5]
+      intensity: 0.3
+      spot_exp: 2
+      near_dist_T: 0.1
+      decay_bound: 10
+      emission_r: 0.05
+      shininess: 100
+      specular_strength: 5
+      move_with_cam: False
+      flare_size: 300
+      flare_path: 'assets/flares/1.png'
