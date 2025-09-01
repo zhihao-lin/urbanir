@@ -2,12 +2,8 @@ import torch
 from torch import nn
 from opt import get_opts
 import os
-import glob
-import imageio
 import numpy as np
 import cv2
-import random
-import math
 from einops import rearrange
 
 # data
@@ -47,7 +43,6 @@ from pytorch_lightning.utilities.distributed import all_gather_ddp_if_available
 from utils import slim_ckpt, load_ckpt, save_image
 
 # render path
-from tqdm import trange
 from render import render_for_test, depth2img, semantic2img
 import trimesh
 from kornia import create_meshgrid

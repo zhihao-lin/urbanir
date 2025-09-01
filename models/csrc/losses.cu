@@ -1,3 +1,4 @@
+#include <thrust/execution_policy.h>
 #include "utils.h"
 #include <thrust/scan.h>
 

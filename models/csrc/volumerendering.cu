@@ -1,5 +1,6 @@
 #include "utils.h"
 #include <thrust/scan.h>
+#include <thrust/execution_policy.h>
 
 
 template <typename scalar_t>

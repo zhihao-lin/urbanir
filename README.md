@@ -16,10 +16,21 @@ The code has been tested on:
 - **OS**: Ubuntu 22.04.4 LTS
 - **GPU**: NVIDIA GeForce RTX 4090, NVIDIA RTX A6000
 - **Driver Version**: 535, 545
-- **CUDA Version**: 12.2, 12.3
-- **nvcc**: 11.7
+- **CUDA Version**: 12.1, 12.2
+- **nvcc**: 12.1
 
 ## 🔦 Installation
+
+- Install CUDA, CuDNN & Nvidia Driver:
+```
+Follow this GitHub Gist for installing CUDA, CuDNN and Nvidia Drivers: https://gist.github.com/sajidahmed12/886be772fa02aebe75e62a5534fa8176
+```
+- Install NinJa via APT
+```
+sudo apt update
+sudo apt install ninja-build
+ninja --version
+```
 - Create Conda environment:
 ```
 conda create -n urbanir -y python=3.9
@@ -31,20 +42,52 @@ pip install -r requirements.txt
 ```
 - Install [pytorch_scatter](https://github.com/rusty1s/pytorch_scatter):
 ```
-pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.1+cu117.html
+pip install -U torch-scatter -f https://data.pyg.org/whl/torch-2.3.1+cu121.html
+```
+- Install Build Tools:
+```
+sudo apt-get install build-essential git
 ```
 - Install [tiny-cuda-nn](https://github.com/NVlabs/tiny-cuda-nn):
 ```
+pip install git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torc
+or 
 git clone --recursive https://github.com/NVlabs/tiny-cuda-nn.git
 ```
 Then use your favorite editor to edit `tiny-cuda-nn/include/tiny-cuda-nn/common.h` and set `TCNN_HALF_PRECISION` to `0` (see [NVlabs/tiny-cuda-nn#51](https://github.com/NVlabs/tiny-cuda-nn/issues/51) for details)
+
+
 ```
 cd tiny-cuda-nn/bindings/torch
 python setup.py install
 ```
-- Compile CUDA extension of this project
+- Compile CUDA extension of this project Vern 
 ```
-pip install models/csrc/
+cd models/csrc
+touch pyproject.toml
+```
+-  Add these lines to the toml file
+```
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "torch==2.3.1",
+    "torchvision==0.18.1"
+]
+build-backend = "setuptools.build_meta"
+```
+
+-  Run to build vren
+```
+python setup.py build_ext --inplace
+or 
+pip install . --no-build-isolation
+```
+- Add to PYTHONPATH if not found
+```
+export TCNN_CUDA_ARCHITECTURES="80;86;89" 
+export PYTHONPATH=/home/sajid/workspace/urbanir/models/csrc/build/lib.linux-x86_64-cpython-39:$PYTHONPATH
 ```
 
 ## 🔦 Dataset and Checkpoints
